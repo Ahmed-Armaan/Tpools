@@ -59,7 +59,7 @@ bool check_queue_type_mismatch(queue_t *Q, ele_t ele){
 		return true;
 	}
 	if(Q->queue_type == work && ele.work == NULL){
-		fprintf(stderr, "Type Mismatch: Cant write tread into work queue\n");
+		fprintf(stderr, "Type Mismatch: Cant write thread into work queue\n");
 		return true;
 	}
 

@@ -19,7 +19,6 @@ typedef struct thread_controllers{
 
 struct tpool *tpool_init(size_t thread_queue_size, size_t work_queue_size, bool resize);
 bool tpool_destroy(tpool_t *tp);
-//bool tpool_add_work(struct pool_work *w);
 bool tpool_wait(tpool_t *tp);
 bool tpool_add_work(tpool_t *tp, struct pool_work *w);
 
