@@ -3,15 +3,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct queue{
-	ele_t *arr;
-	size_t size;
-	size_t cap;
-	size_t start;
-	size_t next;
-	q_type_t queue_type;
-	bool resizable;
-};
+//struct queue{
+//	ele_t *arr;
+//	size_t size;
+//	size_t cap;
+//	size_t start;
+//	size_t next;
+//	q_type_t queue_type;
+//	bool resizable;
+//};
 
 //union queue_element{
 //	pool_work_t *work;
@@ -96,6 +96,13 @@ ele_t get(queue_t *Q){
 
 bool is_full(queue_t *Q){
 	return(Q->size == Q->cap);
+}
+
+bool free_queue(queue_t *Q){
+	if(!Q) return false;
+	free(Q->arr);
+	free(Q);
+	return true;
 }
 
 queue_t *new_thread_queue(size_t size){
