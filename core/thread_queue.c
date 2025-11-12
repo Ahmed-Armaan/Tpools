@@ -23,6 +23,7 @@ static void *worker_loop(void *args){
 		while (w_l_args->wq->size == 0) {
 			pthread_cond_wait(w_l_args->cond, w_l_args->mutex);
 		}
+
 		ele_t e = get(w_l_args->wq);
 		pthread_mutex_unlock(w_l_args->mutex);
 		pool_work_t *work = e.work;
@@ -57,8 +58,7 @@ queue_t *thread_queue_init(size_t size, queue_t *work_queue, thread_controllers_
 		w_l_args->mutex = controllers->mutex;
 		w_l_args->cond = controllers->cond;
 
-
-		int s = pthread_create(thread, NULL, worker_loop, (void*)(&w_l_args));
+		int s = pthread_create(thread, NULL, worker_loop, (void*)(w_l_args));
 		if(s != 0){
 			fprintf(stderr, "Failed to create a thread\n");
 			free(thread);

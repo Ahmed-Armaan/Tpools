@@ -91,6 +91,7 @@ ele_t get(queue_t *Q){
 
 	ele_t curr_ele = Q->arr[Q->start];
 	Q->start = (++Q->start) % Q->cap;
+	Q->size--;
 	return curr_ele;
 }
 

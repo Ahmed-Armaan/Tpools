@@ -1,2 +1,3 @@
 main.c
 tpool_test
+libtpool.a
