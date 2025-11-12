@@ -120,6 +120,7 @@ gcc <your-file>.c -L. -ltpool -pthread -Iinc -o <output_binary>
 #include "tpool.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 void print_number(void *arg) { // work function
     int *num = (int *)arg;
@@ -145,6 +146,7 @@ int main() {
         tpool_add_work(pool, work); // add work; free threads automatically pick up and execute
     }
 
+    sleep(10);
     tpool_destroy(pool); // cleanup
     return 0;
 }
