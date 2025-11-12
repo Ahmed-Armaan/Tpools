@@ -1,3 +1,4 @@
 main.c
 tpool_test
+tpool_demo
 libtpool.a

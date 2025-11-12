@@ -81,10 +81,43 @@ Destroys the thread pool, cleans up resources, and joins all worker threads.
 
 ---
 
+# Usage
+
+## Compilation
+
+**Clone the repo**
+```bash
+git clone https://github.com/Ahmed-Armaan/Tpools.git
+```
+
+**Build the library**
+```bash
+make
+```
+The `libtpool.a` file will be created.
+
+## Using libtpool
+
+Move `libtpool.a` to your project directory.
+Include the Tpools header:
+
+```C
+#include "tpools.h"
+```
+Use the functions as referenced in the API section
+
+## Compiling code using libtpool
+
+```bash
+gcc <your-file>.c -L. -ltpool -pthread -Iinc -o <output_binary>
+```
+---
+
+
 ## Example Usage
 
 ```c
-#include "inc/tpool.h"
+#include "tpool.h"
 #include <stdio.h>
 #include <stdlib.h>
 
